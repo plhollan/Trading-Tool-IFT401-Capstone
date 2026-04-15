@@ -1,4 +1,4 @@
-# TradeDesk — AWS Deployment Guide
+# TradingTool — AWS Deployment Guide
 
 ## Architecture Overview
 ```
@@ -80,7 +80,7 @@ npm install --production
 node scripts/seed.js
 
 # Start with PM2
-pm2 start server.js --name tradedesk
+pm2 start server.js --name tradingtool
 pm2 startup
 pm2 save
 ```
@@ -88,7 +88,7 @@ pm2 save
 ## Step 6: Nginx config (reverse proxy + serve React)
 
 ```bash
-sudo nano /etc/nginx/sites-available/tradedesk
+sudo nano /etc/nginx/sites-available/tradingtool
 ```
 
 Paste:
@@ -120,7 +120,7 @@ server {
 ```
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/tradedesk /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/tradingtool /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 ```
@@ -149,7 +149,7 @@ FRONTEND_URL=https://yourdomain.com
 ```
 
 ```bash
-pm2 restart tradedesk
+pm2 restart tradingtool
 ```
 
 ---

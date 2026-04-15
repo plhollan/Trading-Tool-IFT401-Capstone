@@ -1,4 +1,4 @@
-# TradeDesk — Stock Trading System
+# TradingTool — Stock Trading System
 
 A full-stack stock trading web application built for the IFT401 Capstone.
 

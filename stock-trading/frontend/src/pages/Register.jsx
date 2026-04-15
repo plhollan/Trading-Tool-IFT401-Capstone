@@ -41,7 +41,7 @@ export default function Register() {
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 font-display text-brand-500 text-2xl mb-2">
             <TrendingUp size={28} />
-            TradeDesk
+            TradingTool
           </div>
           <p className="text-slate-400 text-sm">Create your trading account</p>
         </div>
