@@ -11,6 +11,8 @@ async function isMarketOpen() {
   const dateStr = et.toISOString().slice(0, 10);
   const holiday = await db.get('SELECT id FROM market_holidays WHERE date = ?', [dateStr]);
   if (holiday) return false;
+  // TEMP: open all weekday hours — to restore time-based hours, remove this line
+  if (true) return true;
   const [openH, openM]   = settings.open_time.split(':').map(Number);
   const [closeH, closeM] = settings.close_time.split(':').map(Number);
   const minuteNow   = et.getHours() * 60 + et.getMinutes();
