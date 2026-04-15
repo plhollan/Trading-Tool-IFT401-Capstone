@@ -169,8 +169,8 @@ export default function Market() {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-surface-600 text-xs text-slate-500 font-medium">
-              {['Ticker', 'Company', 'Price', 'Change', 'Open', 'High', 'Low', 'Volume', 'Mkt Cap', ''].map(h => (
-                <th key={h} className="px-4 py-3 text-left last:text-right">{h}</th>
+              {['', 'Ticker', 'Company', 'Price', 'Change', 'Open', 'High', 'Low', 'Volume', 'Mkt Cap'].map(h => (
+                <th key={h} className="px-4 py-3 text-left">{h}</th>
               ))}
             </tr>
           </thead>
@@ -184,6 +184,11 @@ export default function Market() {
               const cls = changeClass(pct);
               return (
                 <tr key={s.id} className="table-row">
+                  <td className="px-4 py-3">
+                    <button onClick={() => setSelected(s)} className="btn-primary text-xs px-3 py-1.5">
+                      Trade
+                    </button>
+                  </td>
                   <td className="px-4 py-3 font-display font-medium text-brand-400">{s.ticker}</td>
                   <td className="px-4 py-3 text-slate-300">{s.company_name}</td>
                   <td className="px-4 py-3 font-mono text-white font-medium">{fmtCurrency(s.current_price)}</td>
@@ -199,11 +204,6 @@ export default function Market() {
                   <td className="px-4 py-3 font-mono text-slate-400">{fmtNumber(s.available_volume)}</td>
                   <td className="px-4 py-3 font-mono text-slate-400">
                     {fmtCurrency(s.current_price * s.total_volume)}
-                  </td>
-                  <td className="px-4 py-3 text-right">
-                    <button onClick={() => setSelected(s)} className="btn-primary text-xs px-3 py-1.5">
-                      Trade
-                    </button>
                   </td>
                 </tr>
               );
