@@ -1,7 +1,7 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { fmtCurrency } from '../utils/format';
-import { TrendingUp, LayoutDashboard, Briefcase, History, Settings, LogOut, ChevronRight } from 'lucide-react';
+import { LayoutDashboard, Briefcase, History, Settings, LogOut, BarChart2, List } from 'lucide-react';
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -13,13 +13,13 @@ export default function Navbar() {
   const navLinks = user?.role === 'admin'
     ? [
         { to: '/admin',         label: 'Dashboard',    icon: LayoutDashboard },
-        { to: '/admin/stocks',  label: 'Stocks',       icon: TrendingUp },
+        { to: '/admin/stocks',  label: 'Stocks',       icon: List },
         { to: '/admin/market',  label: 'Market Hours', icon: Settings },
         { to: '/admin/users',   label: 'Users',        icon: Briefcase },
         { to: '/admin/orders',  label: 'All Orders',   icon: History },
       ]
     : [
-        { to: '/market',      label: 'Market',      icon: TrendingUp },
+        { to: '/market',      label: 'Market',      icon: BarChart2 },
         { to: '/portfolio',   label: 'Portfolio',   icon: Briefcase },
         { to: '/history',     label: 'History',     icon: History },
       ];
@@ -30,8 +30,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to={user?.role === 'admin' ? '/admin' : '/market'}
           className="flex items-center gap-2 font-display text-brand-500 font-medium text-lg shrink-0">
-          <TrendingUp size={20} />
-          TradeDesk
+          TradingTool
         </Link>
 
         {/* Nav links */}

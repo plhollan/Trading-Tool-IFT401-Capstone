@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { TrendingUp } from 'lucide-react';
 
 export default function Register() {
   const { register } = useAuth();
@@ -40,7 +39,6 @@ export default function Register() {
       <div className="relative w-full max-w-md animate-fade-in">
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 font-display text-brand-500 text-2xl mb-2">
-            <TrendingUp size={28} />
             TradingTool
           </div>
           <p className="text-slate-400 text-sm">Create your trading account</p>

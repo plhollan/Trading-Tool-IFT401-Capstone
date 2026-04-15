@@ -31,7 +31,10 @@ const PORT = process.env.PORT || 5000;
 // Wait for DB to be ready before starting
 db.ready.then(() => {
   const { startPriceGenerator } = require('./priceGenerator');
+  const { executePendingOrders } = require('./routes/orders');
   startPriceGenerator();
+  // Execute pending orders every 10 seconds after the 1-minute grace period
+  setInterval(executePendingOrders, 10 * 1000);
   app.listen(PORT, () => {
     console.log(`🚀 Stock Trading API running on port ${PORT}`);
     console.log(`   Environment: ${process.env.NODE_ENV || 'development'}`);

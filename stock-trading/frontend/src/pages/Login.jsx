@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { TrendingUp, Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 
 export default function Login() {
   const { login } = useAuth();
@@ -33,7 +33,6 @@ export default function Login() {
       <div className="relative w-full max-w-md animate-fade-in">
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 font-display text-brand-500 text-2xl mb-2">
-            <TrendingUp size={28} />
             TradingTool
           </div>
           <p className="text-slate-400 text-sm">Sign in to your account</p>
@@ -68,8 +67,7 @@ export default function Login() {
           </form>
 
           <p className="text-center text-sm text-slate-500 mt-4">
-            Don't have an account?{' '}
-            <Link to="/register" className="text-brand-400 hover:text-brand-300">Create one</Link>
+            <Link to="/register" className="text-brand-400 hover:text-brand-300">Register new account</Link>
           </p>
         </div>
 
